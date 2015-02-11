@@ -8,7 +8,8 @@ resources: 2
 
 ## Objectives
 
-Given a hash, return an array with every key from the hash whose value matches the value(s) given as an argument.
+Given a hash, return an array with every key from the hash whose value matches the value(s) given as an argument. You will have to use the splat (`*`) operator.
+Read more about that below the example.
 
 ## Example
 
@@ -30,6 +31,25 @@ animals.keys_of("Australia")
 
 animals.keys_of("Australia, Panama")
 # => ["sugar glider", "kangaroo", "koala", "red-footed tortoise"]
+```
+
+## Splat
+
+The * (or splat) operator allows a method to take an arbitrary number of arguments and is perfect for situations when you would not know in advance how many arguments will be passed in to a method.  Here's an example:
+
+```ruby
+def name_greeting(*names)
+  names.each do |name|
+    puts "Hello, #{name}!"
+  end
+end
+
+> name_greeting("Happy", "Sleepy", "Dopey", "Bashful")
+Hello, Happy!
+Hello, Sleepy!
+Hello, Dopey!
+Hello, Bashful!
+=> ["Happy", "Sleepy", "Dopey", "Bashful"]
 ```
 
 ## Instructions

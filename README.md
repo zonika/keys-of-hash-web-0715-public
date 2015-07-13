@@ -1,60 +1,37 @@
----
-tags: todo
-languages: ruby
-resources: 2
----
-
 # Keys Of Hash
 
 ## Objectives
 
-Given a hash, return an array with every key from the hash whose value matches the value(s) given as an argument. You will have to use the splat (`*`) operator.
-Read more about that below the example.
-
-## Example
-
-```ruby
-animals = {
-  "sugar glider"        => "Australia",
-  "aye-aye"             => "Madagascar",
-  "red-footed tortoise" => "Panama",
-  "kangaroo"            => "Australia",
-  "tomato frog"         => "Madagascar",
-  "koala"               => "Australia"
-}
-
-animals.keys_of("Madagascar")
-# => ["aye-aye", "tomato frog"]
-
-animals.keys_of("Australia")
-# => ["sugar glider", "kangaroo", "koala"]
-
-animals.keys_of("Australia, Panama")
-# => ["sugar glider", "kangaroo", "koala", "red-footed tortoise"]
-```
-
-## Splat
-
-The * (or splat) operator allows a method to take an arbitrary number of arguments and is perfect for situations when you would not know in advance how many arguments will be passed in to a method.  Here's an example:
-
-```ruby
-def name_greeting(*names)
-  names.each do |name|
-    puts "Hello, #{name}!"
-  end
-end
-
-> name_greeting("Happy", "Sleepy", "Dopey", "Bashful")
-Hello, Happy!
-Hello, Sleepy!
-Hello, Dopey!
-Hello, Bashful!
-=> ["Happy", "Sleepy", "Dopey", "Bashful"]
-```
+1. Practice manipulating hashes
+2. Practice using the splat operator
+3. Understand what monkey patching is
 
 ## Instructions
 
-Run your testing suite to get started. You will be monkey patching the Hash class for this lab.
+Fork and clone this lab. Run `learn` to see what the tests require of you. In this lab you'll be modifying Ruby's Hash class. This is called **monkey patching**. 
+
+### What is Monkey Patching
+
+Monkey patching is the practice of re-opening and modifying pre-existing classes. So, Ruby already has a Hash class, the instances of which you've been working with in the past two units. If we create a file that reads: 
+
+```ruby
+class Hash
+
+  #some stuff
+  
+end
+```
+
+Ruby will understand the the Hash class already exists and that you are modifying/adding to it. 
+
+### Danger!
+
+Monkey patching is generally avoided. You don't want to mess with the implementation of the objects and methods native to Ruby. It could get messy, fast. What if you monkey patch the Hash class and accidentally overwrite or interfere with some functionality that you need to utilize? What if you monkey patch the hash class and then your bff/co-worker/boss/someone you have never even met before in our wonderful open-source community tried to build on your code and gets confused and thwarted by your monkey patches? 
+
+### Back to the instructions...
+You'll be coding your solution in `lib/keys_of_hash.rb`. You'll fill out the content of the `keys_of_hash` method which is an instance method that we are adding to the Hash class. This means that any instance of the Hash class, i.e. any hash, can now have `.keys_of_hash` called on it. 
+
+This method should take an an undefined number of arguments, using the splat operator, and return an array with every key from the hash whose value matches the value(s) given as an argument. 
 
 ## Resources
 
